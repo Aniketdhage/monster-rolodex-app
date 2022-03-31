@@ -20,7 +20,10 @@ const App = () => {
 
   useEffect(() => {
     const filteredMonster = monster.filter((item) => {
-      return item.name.toLowerCase().includes(searchField);
+      return (
+        item.name.toLowerCase().includes(searchField) ||
+        item.email.toLowerCase().includes(searchField)
+      );
     });
     setFilteredMonsters(filteredMonster);
   }, [monster, searchField]);
